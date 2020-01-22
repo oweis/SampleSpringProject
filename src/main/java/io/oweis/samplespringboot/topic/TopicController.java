@@ -1,19 +1,38 @@
 package io.oweis.samplespringboot.topic;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 public class TopicController {
-    @RequestMapping("/topics")
+
+    @Autowired
+    private TopicService topicService;
+
+    @GetMapping ("/topics")
     public List<Topic> getAllTopics(){
-        return Arrays.asList(
-                new Topic("spring", "Spring Framework", "Spring Framework Description"),
-                new Topic("core","Core Java", "Core Java Description"),
-                new Topic("javascript","Javascript","Javascript Description")
-        );
+        return topicService.getAllTopics();
+    }
+
+    @GetMapping("/topics/{id}")
+    public Topic getTopic(@PathVariable String id){
+        return topicService.getTopic(id);
+    }
+
+    @PostMapping("/topics")
+    public void addTopic(@RequestBody Topic topic){
+        topicService.addTopic(topic);
+    }
+
+    @PutMapping("/topics/{id}")
+    public void updateTopic(@PathVariable String id, @RequestBody Topic topic){
+        topicService.updateTopic(id, topic);
+    }
+
+    @DeleteMapping("/topics/{id}")
+    public void deleteTopic(@PathVariable String id){
+        topicService.deleteTopic(id);
     }
 }
