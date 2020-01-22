@@ -16,3 +16,6 @@ provide the different properties you can change plus their default value
 
 # Spring Data JPA
 connect to different SGBD nearly in the same approach, easier database connection
+
+# Package your application
+just run mvn clean install, check the target folder and you will find your jar
