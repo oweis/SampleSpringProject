@@ -11,28 +11,28 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
-    @GetMapping ("/topics")
-    public List<Topic> getAllTopics(){
+    @GetMapping("/topics")
+    public List<Topic> getAllTopics() {
         return topicService.getAllTopics();
     }
 
     @GetMapping("/topics/{id}")
-    public Topic getTopic(@PathVariable String id){
+    public Topic getTopic(@PathVariable String id) {
         return topicService.getTopic(id);
     }
 
     @PostMapping("/topics")
-    public void addTopic(@RequestBody Topic topic){
+    public void addTopic(@RequestBody Topic topic) {
         topicService.addTopic(topic);
     }
 
-    @PutMapping("/topics/{id}")
-    public void updateTopic(@PathVariable String id, @RequestBody Topic topic){
-        topicService.updateTopic(id, topic);
+    @PutMapping("/topics")
+    public void updateTopic(@RequestBody Topic topic) {
+        topicService.updateTopic(topic);
     }
 
     @DeleteMapping("/topics/{id}")
-    public void deleteTopic(@PathVariable String id){
+    public void deleteTopic(@PathVariable String id) {
         topicService.deleteTopic(id);
     }
 }

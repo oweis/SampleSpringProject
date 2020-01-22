@@ -7,3 +7,6 @@
 
 # Compiled folder
 target
+
+# Derby log files
+derby.log
