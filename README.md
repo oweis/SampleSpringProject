@@ -19,3 +19,6 @@ connect to different SGBD nearly in the same approach, easier database connectio
 
 # Package your application
 just run mvn clean install, check the target folder and you will find your jar
+
+#Spring Boot Actuator
+Helpful features to monitor and manage your application http://localhost:8082/actuator
